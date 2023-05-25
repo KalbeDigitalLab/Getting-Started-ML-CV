@@ -1,0 +1,7 @@
+# Ignore Everything
+*
+
+# Only track specific files
+!.gitignore
+!*.ipynb
+!src/*.py
