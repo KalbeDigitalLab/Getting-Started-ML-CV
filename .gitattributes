@@ -1,0 +1,1 @@
+pretrained/simple-lightning-epoch100/resnet18_epoch99.ckpt filter=lfs diff=lfs merge=lfs -text
