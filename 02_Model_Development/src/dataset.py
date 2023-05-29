@@ -99,7 +99,7 @@ class Food101LitDatamodule(LightningDataModule):
     data_dir : str, optional
         FiftyOne dataset directory, by default 'data/'
     input_size : List[int], optional
-        Input model size, by default [600, 500]
+        Input model size, by default [384, 384]
     batch_size : int, optional
         Number of training batch size, by default 64
     num_workers : int, optional
@@ -111,7 +111,7 @@ class Food101LitDatamodule(LightningDataModule):
     def __init__(
         self,
         data_dir: str = 'data/',
-        input_size: Tuple[int, int] = (600, 500),
+        input_size: Tuple[int, int] = (384, 384),
         batch_size: int = 64,
         num_workers: int = 0,
         pin_memory: bool = False,
