@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchmetrics as tm
 from lightning import LightningModule
+import timm
 
 
 class BasicBlock(nn.Module):
@@ -116,6 +117,49 @@ class ResNet18(nn.Module):
                     BasicBlock(in_channels, out_channels, identity_downsample=identity_downsample, stride=stride),
                     BasicBlock(out_channels, out_channels)
                     )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+
+        x = self.avgpool(x)
+        x = x.view(x.shape[0], -1)
+        x = self.fc(x)
+        return x
+
+
+class TimmModel(nn.Module):
+    """Construct Timm Based Model.
+
+    Parameters
+    ----------
+    input_channels : int
+        Number of input channels
+    num_classes : int
+        Number of class outputs
+    model_name: str
+        Model type that is going to use, by default efficientnetv2_rw_s
+    pretrained: bool
+        Use pretrained model, by default True
+    """
+
+    def __init__(self,
+                 input_channels: int,
+                 num_classes: int,
+                 model_name: str = "efficientnetv2_rw_s",
+                 pretrained : bool = True
+    ):
+        super(TimmModel, self).__init__()
+        self.model = timm.create_model(
+            model_name, pretrained=pretrained,
+            num_classes = num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.conv1(x)
