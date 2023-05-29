@@ -1,0 +1,19 @@
+# https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.ModelCheckpoint.html
+# https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.EarlyStopping.html
+
+model_checkpoint:
+  _target_: lightning.pytorch.callbacks.ModelCheckpoint
+  dirpath: null
+  filename: "epoch_{epoch:03d}"
+  monitor: "val/acc"
+  mode: "max"
+  save_last: True
+  save_top_k: 1
+  auto_insert_metric_name: False
+
+early_stopping:
+  _target_: lightning.pytorch.callbacks.EarlyStopping
+  monitor: "val/acc"
+  patience: 100
+  mode: "max"
+

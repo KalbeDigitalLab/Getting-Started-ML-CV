@@ -1,0 +1,8 @@
+_target_: src.models.ClassificationLightningModule
+
+num_classes: 10
+lr: 0.0001
+net:
+  _target_: timm.create_model
+  model_name: mobilenetv2_100
+  num_classes: ${..num_classes}

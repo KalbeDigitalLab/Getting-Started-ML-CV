@@ -1,0 +1,50 @@
+# @package _global_
+
+# specify here default configuration
+# order of defaults determines the order in which configs override each other
+defaults:
+  - _self_
+  - data: food101.yaml
+  - model: resnet18.yaml
+  - callbacks: default.yaml
+  - logger: null
+  - trainer: default.yaml
+
+  # experiment configs allow for version control of specific hyperparameters
+  # e.g. best hyperparameters for given model and datamodule
+  - experiment: null
+
+  # config for hyperparameter optimization
+  - hparams_search: null
+
+work_dir: ${hydra:runtime.cwd}
+
+# task name, determines output directory path
+task_name: "train"
+
+# path to data directory
+data_dir: data/
+
+# tags to help you identify your experiments
+# you can overwrite this in experiment configs
+# overwrite from command line with `python train.py tags="[first_tag, second_tag]"`
+tags: ["dev"]
+
+# set False to skip model training
+train: True
+
+# evaluate on test set, using best model weights achieved during training
+# lightning chooses best weights based on the metric specified in checkpoint callback
+test: True
+
+# simply provide checkpoint path to resume training
+ckpt_path: null
+
+# seed for random number generators in pytorch, numpy and python.random
+seed: null
+
+# disable python warnings if they annoy you
+ignore_warnings: True
+
+# pretty print config tree at the start of the run using Rich library
+print_config: True
