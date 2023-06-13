@@ -42,7 +42,8 @@ The project includes the following folders:
 2. **02_Model_Development**: Contains notebooks for building and training the model.
 3. **03_Model_Deployment**: Contains notebooks for deploying the model using FastAPI.
 4. **src**: Contains model development scripts, e.g. model, dataset, and utilities
-5. **pretrained**: Pretrained model for inference
+5. **configs**: Configuration files to run lightning pipeline using Hydra
+6. **pretrained**: Pretrained model for inference
 
 Each folder will have several notebooks, each corresponding to a specific step in the process.
 
