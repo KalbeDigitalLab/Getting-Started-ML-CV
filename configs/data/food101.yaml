@@ -1,0 +1,6 @@
+_target_: src.dataset.Food101LitDatamodule
+data_dir: ${data_dir}
+input_size: [384, 384]
+batch_size: 16
+num_workers: 4
+pin_memory: False
