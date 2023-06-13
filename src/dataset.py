@@ -9,11 +9,10 @@ from lightning import LightningDataModule
 from torch.utils.data import DataLoader, Dataset
 from torchvision.transforms import transforms
 
-
+# Dataset Metadata
 RGB_MEAN = [0.51442681, 0.43435301, 0.33421855]
 RGB_STD = [0.24099932, 0.246478, 0.23652802]
 INPUT_SIZE = (384, 384)
-
 
 TRAIN_TRANSFORMATION = transforms.Compose([
     transforms.ToPILImage(),
