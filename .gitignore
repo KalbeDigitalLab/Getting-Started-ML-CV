@@ -161,4 +161,8 @@ cython_debug/
 
 # Custom
 data/
+checkpoints/
+getting-started-dlcv/
+multirun/
+wandb/
 *.zip

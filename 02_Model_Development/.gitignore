@@ -162,3 +162,5 @@ cython_debug/
 # Custom
 checkpoints/
 wandb/
+learning-food101-tiny/
+lightning_logs/
