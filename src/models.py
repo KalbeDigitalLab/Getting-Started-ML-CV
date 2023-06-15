@@ -119,6 +119,7 @@ class ResNet18(nn.Module):
                     )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """Apply forward computation."""
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
@@ -162,6 +163,7 @@ class TimmModel(nn.Module):
             num_classes = num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """Apply forward computation."""
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
@@ -224,10 +226,12 @@ class ClassificationLightningModule(LightningModule):
         self.test_metrics = self.val_metrics.clone()
 
     def reset_metrics(self):
+        """Reset metrics."""
         self.train_acc.reset()
         self.val_metrics.reset()
 
     def forward(self, x: torch.Tensor):
+        """Apply forward computation."""
         return self.net(x)
 
     def on_train_start(self):
@@ -236,6 +240,7 @@ class ClassificationLightningModule(LightningModule):
         self.reset_metrics()
 
     def model_step(self, batch: Any):
+        """Apply forward pass and compute metrics."""
         images, targets = batch
         targets = targets.squeeze().long() # convert to 1D
         logits = self.forward(images)
