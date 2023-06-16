@@ -38,12 +38,9 @@ The project consists of the following stages:
 
 The project includes the following folders:
 
-1. **01_Data_Preprocessing**: Contains notebooks for data analysis and preprocessing.
-2. **02_Model_Development**: Contains notebooks for building and training the model.
-3. **03_Model_Deployment**: Contains notebooks for deploying the model using FastAPI.
-4. **src**: Contains model development scripts, e.g. model, dataset, and utilities
-5. **configs**: Configuration files to run lightning pipeline using Hydra
-6. **pretrained**: Pretrained model for inference
+1. **src**: Contains model development scripts, e.g. model, dataset, and utilities
+2. **configs**: Configuration files to run lightning pipeline using Hydra
+3. **pretrained**: Pretrained model for inference
 
 Each folder will have several notebooks, each corresponding to a specific step in the process.
 
